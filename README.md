@@ -40,12 +40,11 @@ rails db:migrate db:seed
 
 ## Validations
 
-There are four validations to the `Transaction` model:
+There are three validations to the `Transaction` model:
 
 - must have a `payer` that is not null
 - must have `points` that is not null
 - must have `timestamp` that is not null
-- `points` must be greater than 0
 
 ## Routes
 
