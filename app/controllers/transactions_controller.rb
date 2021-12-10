@@ -1,7 +1,12 @@
 class TransactionsController < ApplicationController
     def index 
-        transactions = Transaction.all
-        
+        # transactions = Transaction.all
+        # recent_transactions = {}
+
+        # transactions.map do |transaction|
+
+        # end    
+        # render json: recent_transactions
     end
 
     def create
