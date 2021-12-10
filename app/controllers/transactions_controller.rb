@@ -1,12 +1,12 @@
 class TransactionsController < ApplicationController
     def index 
-        # transactions = Transaction.all
-        # recent_transactions = {}
+        transactions = Transaction.all
+        recent_transactions = {}
 
-        # transactions.map do |transaction|
-
-        # end    
-        # render json: recent_transactions
+        transactions.map do |transaction|
+            recent_transactions[transaction.payer] ? balances[transaction.payer] += transaction.points : recent_transactions[transaction.payer] = transaction.points
+        end    
+        render json: recent_transactions
     end
 
     def create
