@@ -56,11 +56,13 @@ The application contains the following specified routes along with the appropria
 For all existing recent `Transaction`s created, return JSON data in the format below without repeating payers:
 
 ```json
-{
-  "DANNON": 1000,
-  "UNILEVER": 0,
-  "MILLER COORS": 5300
-}
+[
+  {
+    "DANNON": 1000,
+    "UNILEVER": 0,
+    "MILLER COORS": 5300
+  }
+]
 ```
 
 ### POST /add_transaction
@@ -106,3 +108,13 @@ This route substracts a fixed amount of points for every existing payer. It acce
 ```
 
 If a `Transaction` has a payer that is repeated, it substracts the appropriate points based on the oldest timestamp that exists while ensuring its points do not go below zero.
+
+The expected response from the spend call would be:
+
+```json
+[
+  { "payer": "DANNON", "points": -100 },
+  { "payer": "UNILEVER", "points": -200 },
+  { "payer": "MILLER COORS", "points": -4,700 }
+]
+```
