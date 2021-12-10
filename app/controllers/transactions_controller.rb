@@ -20,7 +20,13 @@ class TransactionsController < ApplicationController
     end
 
     def spend
-        
+        current_points = []
+        Transaction.all.map do |trans|
+            current_points << trans.points
+        end
+        total_points = current_points.sum
+
+        transactions = Transaction.all
     end
 
     private
@@ -28,5 +34,4 @@ class TransactionsController < ApplicationController
     def transaction_params
         params.permit(:payer, :points, :timestamp)
     end
-
 end
