@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
         recent_transactions = {}
 
         transactions.map do |transaction|
-            recent_transactions[transaction.payer] ? balances[transaction.payer] += transaction.points : recent_transactions[transaction.payer] = transaction.points
+            recent_transactions[transaction.payer] ? recent_transactions[transaction.payer] += transaction.points : recent_transactions[transaction.payer] = transaction.points
         end    
         render json: recent_transactions
     end
