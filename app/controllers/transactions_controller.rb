@@ -25,8 +25,10 @@ class TransactionsController < ApplicationController
             current_points << trans.points
         end
         total_points = current_points.sum
-
         transactions = Transaction.all
+
+        
+
     end
 
     private

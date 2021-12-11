@@ -96,7 +96,7 @@ JSON data, along with the appropriate HTTP status code:
 }
 ```
 
-### PUT /spend_points
+### PATCH /spend_points
 
 This route substracts a fixed amount of points for every existing payer. It accepts an object with the following property in the body of the request is formatted below:
 
@@ -116,4 +116,10 @@ The expected response from the spend call would be:
   { "payer": "UNILEVER", "points": -200 },
   { "payer": "MILLER COORS", "points": -4,700 }
 ]
+```
+
+If it is not possible to use the points, the expected response from the call would be:
+
+```json
+{ "error": "Not enough points" }
 ```
