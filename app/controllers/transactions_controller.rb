@@ -36,7 +36,7 @@ class TransactionsController < ApplicationController
         spent_balance = {}
 
         if total_points < points_to_substract
-            render json: {"error": "Not enough points"}
+            render json: {"Fatal": "Not enough points"}
         else
             transactions.map do |transaction|
                 if points_to_substract <= 0 
@@ -61,7 +61,6 @@ class TransactionsController < ApplicationController
             end
         end
         render json: spent_balance
-
     end
 
     private

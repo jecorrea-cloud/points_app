@@ -121,5 +121,5 @@ The expected response from the spend call would be:
 If it is not possible to use the points, the expected response from the call would be:
 
 ```json
-{ "error": "Not enough points" }
+{ "Fatal": "Not enough points" }
 ```
