@@ -31,10 +31,11 @@ class TransactionsController < ApplicationController
         #All transactions
         transactions = Transaction.all.sort_by(& :timestamp)
         #Points from the request to substract
-        points_to_substract = params(:points)
+        points_to_substract = params[:points].to_i
         #Hash for the response
         spent_balance = {}
 
+        # byebug
         if total_points < points_to_substract
             render json: {"Fatal": "Not enough points"}
         else
